@@ -24,6 +24,7 @@ export async function POST(req: NextRequest) {
     const payload = {
         title: original.title,
         price: original.price,
+        description: original.description, //agregado
         available_quantity: original.available_quantity,
         // ...otros campos relevantes...
     };

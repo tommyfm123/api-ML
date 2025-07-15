@@ -11,7 +11,9 @@ type Product = {
   price: number;
   available_quantity: number;
   thumbnail: string;
+  description: string;
 };
+
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -61,6 +63,7 @@ export default function Home() {
               <tr>
                 <th>Imagen</th>
                 <th>Título</th>
+                <th>Descripción</th> {/* Nueva columna */}
                 <th>Precio</th>
                 <th>Stock</th>
               </tr>
@@ -72,6 +75,7 @@ export default function Home() {
                     <Image src={p.thumbnail} alt={p.title} width={50} height={50} />
                   </td>
                   <td>{p.title}</td>
+                  <td>{p.description || '—'}</td> {/* Nueva celda */}
                   <td>${p.price}</td>
                   <td>{p.available_quantity}</td>
                 </tr>
