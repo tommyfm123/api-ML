@@ -45,4 +45,4 @@ ML_CLIENT_SECRET=tu_client_secret
 ML_REDIRECT_URI=tu_redirect_uri
 ```
 
-Luego inicia el servidor de desarrollo con `npm run dev` y visita `/` para conectar tu cuenta.
+Instala las dependencias con `npm install` y luego inicia el servidor de desarrollo con `npm run dev`. Después visita `/` para conectar tu cuenta.

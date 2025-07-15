@@ -3,6 +3,10 @@ import { NextRequest, NextResponse } from 'next/server';
 export async function GET(req: NextRequest) {
     const accessToken = req.nextUrl.searchParams.get('access_token');
 
+    if (!accessToken) {
+        return NextResponse.json({ error: 'Falta access_token' }, { status: 400 });
+    }
+
     const userRes = await fetch('https://api.mercadolibre.com/users/me', {
         headers: { Authorization: `Bearer ${accessToken}` }
     });
