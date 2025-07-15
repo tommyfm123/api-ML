@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
-import cookie from 'cookie';
+import { parse } from 'cookie';
+
 
 export async function GET(req: NextRequest) {
-    const cookies = cookie.parse(req.headers.get('cookie') || '');
-    const token = cookies.ml_access_token;
+    const cookies = parse(req.headers.get('cookie') || ''); const token = cookies.ml_access_token;
 
     if (!token) {
         return NextResponse.json({ error: 'No autorizado' }, { status: 401 });

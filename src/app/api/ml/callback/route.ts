@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import cookie from 'cookie';
+import { serialize } from 'cookie';
 
 export async function GET(req: NextRequest) {
     const code = req.nextUrl.searchParams.get('code');
@@ -23,7 +23,7 @@ export async function GET(req: NextRequest) {
 
     res.headers.append(
         'Set-Cookie',
-        cookie.serialize('ml_access_token', data.access_token, {
+        serialize('ml_access_token', data.access_token, {
             path: '/',
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',

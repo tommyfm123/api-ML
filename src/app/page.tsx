@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import './Home.css';
+import Image from 'next/image';
 
 type Product = {
   id: string;
@@ -67,7 +68,9 @@ export default function Home() {
             <tbody>
               {products.map(p => (
                 <tr key={p.id}>
-                  <td><img src={p.thumbnail} alt={p.title} width={50} /></td>
+                  <td>
+                    <Image src={p.thumbnail} alt={p.title} width={50} height={50} />
+                  </td>
                   <td>{p.title}</td>
                   <td>${p.price}</td>
                   <td>{p.available_quantity}</td>
