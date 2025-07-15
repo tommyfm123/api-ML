@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import cookie from 'cookie';
 
 export async function GET(req: NextRequest) {
     const code = req.nextUrl.searchParams.get('code');
@@ -11,13 +12,24 @@ export async function GET(req: NextRequest) {
             client_id: process.env.ML_CLIENT_ID!,
             client_secret: process.env.ML_CLIENT_SECRET!,
             code: code!,
-            redirect_uri: process.env.ML_REDIRECT_URI!
-        })
+            redirect_uri: process.env.ML_REDIRECT_URI!,
+        }),
     });
 
     const data = await tokenRes.json();
-    console.log('TOKENS:', data);
 
-    // ⚠️ Para este ejemplo lo pasamos por query (NO recomendado en producción)
-    return NextResponse.redirect(`/api/ml/items?access_token=${data.access_token}`);
+    // Guardar el token en una cookie segura (httponly)
+    const res = NextResponse.redirect('/');
+
+    res.headers.append(
+        'Set-Cookie',
+        cookie.serialize('ml_access_token', data.access_token, {
+            path: '/',
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: data.expires_in,
+        }),
+    );
+
+    return res;
 }

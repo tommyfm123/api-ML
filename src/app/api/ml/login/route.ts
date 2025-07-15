@@ -1,3 +1,4 @@
+// redirige al OAuth de MercadoLibre
 import { NextResponse } from 'next/server';
 
 export async function GET() {
