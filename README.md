@@ -34,3 +34,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Configuración de MercadoLibre
+
+Crea un archivo `.env.local` a partir de `.env.example` y completa tus credenciales de la API de MercadoLibre:
+
+```
+ML_CLIENT_ID=tu_client_id
+ML_CLIENT_SECRET=tu_client_secret
+ML_REDIRECT_URI=tu_redirect_uri
+```
+
+Luego inicia el servidor de desarrollo con `npm run dev` y visita `/` para conectar tu cuenta.

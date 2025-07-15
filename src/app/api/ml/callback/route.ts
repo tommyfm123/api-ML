@@ -19,5 +19,5 @@ export async function GET(req: NextRequest) {
     console.log('TOKENS:', data);
 
     // ⚠️ Para este ejemplo lo pasamos por query (NO recomendado en producción)
-    return NextResponse.redirect(`/api/ml/items?access_token=${data.access_token}`);
+    return NextResponse.redirect(`/items?access_token=${data.access_token}`);
 }
