@@ -35,6 +35,8 @@ export default function Home() {
     });
     if (res.ok) {
       setProducts(prev => prev.filter(p => p.id !== id));
+    } else {
+      console.error('Delete failed');
     }
   };
 
@@ -72,6 +74,8 @@ export default function Home() {
         prev.map((p) => (p.id === editingProduct.id ? { ...p, ...editForm } : p))
       );
       setEditingProduct(null);
+    } else {
+      console.error('Edit failed');
     }
   };
 

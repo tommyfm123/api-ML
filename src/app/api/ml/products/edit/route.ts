@@ -1,13 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveEdit } from '@/data/localStore';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req: NextRequest) {
-    const { id, ...updates } = await req.json();
-    if (!id) {
-        return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
+    try {
+        const { id, ...updates } = await req.json();
+        if (!id) {
+            return NextResponse.json({ error: 'ID requerido' }, { status: 400 });
+        }
+        await saveEdit(id, updates);
+        return NextResponse.json({ success: true });
+    } catch (err) {
+        console.error('edit error', err);
+        return NextResponse.json({ error: 'Error interno' }, { status: 500 });
     }
-    await saveEdit(id, updates);
-    return NextResponse.json({ success: true });
 }
 
 
