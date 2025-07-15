@@ -53,6 +53,22 @@
     text-align: left;
 }
 
+.product-table button {
+    cursor: pointer;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    color: #fff;
+}
+
+.edit-button {
+    background-color: #007bff;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
 .edit-form {
     margin-top: 1rem;
     width: 100%;

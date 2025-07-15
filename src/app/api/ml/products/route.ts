@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { parse } from 'cookie';
+import { applyLocalChanges, Product } from '@/data/localStore';
 
 export const dynamic = 'force-dynamic';
 
@@ -27,7 +28,7 @@ export async function GET(req: NextRequest) {
     }
     const { results: itemIds } = await itemsRes.json();
 
-    const products = await Promise.all(
+    const products: Product[] = await Promise.all(
         itemIds.map(async (id: string) => {
             const itemRes = await fetch(`https://api.mercadolibre.com/items/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -47,5 +48,6 @@ export async function GET(req: NextRequest) {
         })
     );
 
-    return NextResponse.json({ results: products });
+    const merged = await applyLocalChanges(products);
+    return NextResponse.json({ results: merged });
 }

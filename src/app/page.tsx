@@ -135,8 +135,18 @@ export default function Home() {
                   <td>${p.price}</td>
                   <td>{p.available_quantity}</td>
                   <td>
-                    <button onClick={() => startEdit(p)}>Editar</button>{' '}
-                    <button onClick={() => handleDelete(p.id)}>Eliminar</button>
+                    <button
+                      className="edit-button"
+                      onClick={() => startEdit(p)}
+                    >
+                      Editar
+                    </button>{' '}
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDelete(p.id)}
+                    >
+                      Eliminar
+                    </button>
                   </td>
                 </tr>
               ))}
