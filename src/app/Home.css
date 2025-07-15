@@ -5,6 +5,7 @@
     align-items: center;
     background-color: #f8f9fa;
     padding: 2rem;
+
 }
 
 .home-title {
@@ -37,6 +38,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    color: black;
 }
 
 .product-table {
