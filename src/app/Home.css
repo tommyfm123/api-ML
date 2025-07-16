@@ -13,10 +13,6 @@
     --font: 'Inter', sans-serif;
 }
 
-/* Todos los elementos: texto sin negrita */
-* {
-    font-weight: 400;
-}
 
 body {
     margin: 0;
@@ -156,6 +152,8 @@ body {
     align-items: center;
     gap: 0.5rem;
     font-weight: normal;
+    flex-direction: column;
+    height: max-content;
 }
 
 .edit-form input,
