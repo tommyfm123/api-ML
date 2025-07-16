@@ -13,7 +13,6 @@
     --font: 'Inter', sans-serif;
 }
 
-
 body {
     margin: 0;
     font-family: var(--font);
@@ -30,7 +29,6 @@ body {
 .home-title {
     font-size: 2rem;
     font-weight: 600;
-    /* Título en negrita */
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -46,7 +44,6 @@ body {
     color: #1f2937;
     padding: 0.75rem 1.5rem;
     border-radius: 0.75rem;
-    font-weight: 400;
     text-decoration: none;
     font-size: 1rem;
     transition: background-color 0.2s ease;
@@ -120,7 +117,6 @@ body {
     background-color: var(--danger-hover);
 }
 
-/* Formulario de edición sin negritas */
 .edit-form {
     margin-top: 2rem;
     background-color: var(--card-bg);
@@ -136,24 +132,11 @@ body {
     margin-bottom: 1rem;
     font-size: 1.25rem;
     font-weight: 600;
-    /* solo el título en negrita */
 }
 
 .edit-form label {
     display: block;
     margin-bottom: 1rem;
-    font-weight: 400;
-    /* sin negrita */
-}
-
-.buttonsCol {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    font-weight: normal;
-    flex-direction: column;
-    height: max-content;
 }
 
 .edit-form input,
@@ -167,8 +150,6 @@ body {
     background-color: #f9fafb;
     color: var(--text);
     resize: vertical;
-    font-weight: 400;
-    /* aseguramos que no haya negrita */
 }
 
 .edit-form textarea {
@@ -179,8 +160,6 @@ body {
     padding: 0.6rem 1.2rem;
     border: none;
     border-radius: 0.5rem;
-    font-weight: 400;
-    /* sin negrita */
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
@@ -204,14 +183,19 @@ body {
     background-color: #d1d5db;
 }
 
-.descriptionCol {
-    font-weight: normal;
+/* Corrección: Botones en fila, sin negrita ni layout roto */
+.buttonsCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    flex-direction: row;
+    height: max-content;
 }
 
-.priceCol {
-    font-weight: normal;
-}
-
+.descriptionCol,
+.priceCol,
 .QuantCol {
+    /* aseguramos estilo normal */
     font-weight: normal;
 }
