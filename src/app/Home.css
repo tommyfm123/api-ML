@@ -79,7 +79,6 @@ body {
 
 .product-table th {
     background-color: #f3f4f6;
-    font-weight: 600;
     font-size: 0.9rem;
     color: var(--muted);
 }
@@ -186,16 +185,9 @@ body {
 /* Corrección: Botones en fila, sin negrita ni layout roto */
 .buttonsCol {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
-    flex-direction: row;
-    height: max-content;
-}
-
-.descriptionCol,
-.priceCol,
-.QuantCol {
-    /* aseguramos estilo normal */
-    font-weight: normal;
+    height: 100%;
 }
