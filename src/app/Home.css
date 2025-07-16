@@ -150,6 +150,14 @@ body {
     /* sin negrita */
 }
 
+.buttonsCol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: normal;
+}
+
 .edit-form input,
 .edit-form textarea {
     width: 100%;
@@ -196,4 +204,16 @@ body {
 
 .cancel-button:hover {
     background-color: #d1d5db;
+}
+
+.descriptionCol {
+    font-weight: normal;
+}
+
+.priceCol {
+    font-weight: normal;
+}
+
+.QuantCol {
+    font-weight: normal;
 }

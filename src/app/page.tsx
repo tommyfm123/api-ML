@@ -137,10 +137,10 @@ export default function Home() {
                     <Image src={p.thumbnail} alt={p.title} width={50} height={50} />
                   </td>
                   <td>{p.title}</td>
-                  <td>{p.description || '—'}</td>
-                  <td>${p.price}</td>
-                  <td>{p.available_quantity}</td>
-                  <td>
+                  <td className='descriptionCol'>{p.description || '—'}</td>
+                  <td className='priceCol'>${p.price}</td>
+                  <td className='QuantCol'>{p.available_quantity}</td>
+                  <td className='buttonsCol'>
                     <button
                       className="edit-button"
                       onClick={() => startEdit(p)}
