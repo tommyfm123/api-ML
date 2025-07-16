@@ -1,6 +1,5 @@
 "use client";
 
-
 import { useEffect, useState } from 'react';
 import './Home.css';
 import Image from 'next/image';
@@ -13,7 +12,6 @@ type Product = {
   thumbnail: string;
   description: string;
 };
-
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -37,6 +35,7 @@ export default function Home() {
       setProducts(prev => prev.filter(p => p.id !== id));
     } else {
       console.error('Delete failed');
+      alert('Error al eliminar el producto.');
     }
   };
 
@@ -73,14 +72,14 @@ export default function Home() {
       setProducts((prev) =>
         prev.map((p) => (p.id === editingProduct.id ? { ...p, ...editForm } : p))
       );
-      setEditingProduct(null);
+      setEditingProduct(null); // ✅ Cierra el formulario
     } else {
       console.error('Edit failed');
+      alert('Error al guardar los cambios.');
     }
   };
 
   useEffect(() => {
-    // Intentamos obtener productos automáticamente al cargar
     fetch('/api/ml/products')
       .then(res => {
         if (res.status === 401) {
@@ -103,11 +102,14 @@ export default function Home() {
   return (
     <main className="home-container">
       <h1 className="home-title">Conectar con MercadoLibre</h1>
-      {!isAuthenticated && (
-        <a href="/api/ml/login" className="ml-button">
-          Iniciar sesión con MercadoLibre
-        </a>
-      )}
+      <div className="containerBTN">
+        {!isAuthenticated && (
+          <a href="/api/ml/login" className="ml-button">
+            Iniciar sesión con MercadoLibre
+          </a>
+        )}
+      </div>
+
 
       <div className="product-box">
         {loading ? (
@@ -122,7 +124,7 @@ export default function Home() {
               <tr>
                 <th>Imagen</th>
                 <th>Título</th>
-                <th>Descripción</th> {/* Nueva columna */}
+                <th>Descripción</th>
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Acciones</th>
@@ -135,7 +137,7 @@ export default function Home() {
                     <Image src={p.thumbnail} alt={p.title} width={50} height={50} />
                   </td>
                   <td>{p.title}</td>
-                  <td>{p.description || '—'}</td> {/* Nueva celda */}
+                  <td>{p.description || '—'}</td>
                   <td>${p.price}</td>
                   <td>{p.available_quantity}</td>
                   <td>
@@ -144,7 +146,7 @@ export default function Home() {
                       onClick={() => startEdit(p)}
                     >
                       Editar
-                    </button>{' '}
+                    </button>
                     <button
                       className="delete-button"
                       onClick={() => handleDelete(p.id)}
@@ -158,6 +160,7 @@ export default function Home() {
           </table>
         )}
       </div>
+
       {editingProduct && (
         <form className="edit-form" onSubmit={submitEdit}>
           <h3>Editar Producto</h3>
