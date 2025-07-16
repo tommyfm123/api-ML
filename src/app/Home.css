@@ -186,10 +186,7 @@ body {
 
 /* Corrección: Botones en fila, sin negrita ni layout roto */
 .buttonsCol {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
     gap: 0.5rem;
-    height: 100%;
+
 }
