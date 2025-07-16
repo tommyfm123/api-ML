@@ -10,12 +10,11 @@
     --border: #e5e7eb;
     --radius: 0.75rem;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    --font: 'Inter', sans-serif;
+
 }
 
 body {
     margin: 0;
-    font-family: var(--font);
     background-color: var(--bg);
     color: var(--text);
 }
@@ -26,6 +25,12 @@ body {
     padding: 1rem;
 }
 
+.TitleCol {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+}
+
 .home-title {
     font-size: 2rem;
     font-weight: 600;
@@ -33,11 +38,6 @@ body {
     text-align: center;
 }
 
-.containerBTN {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-}
 
 .ml-button {
     background-color: #facc15;
@@ -130,6 +130,7 @@ body {
 .edit-form h3 {
     margin-bottom: 1rem;
     font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .edit-form label {
@@ -160,12 +161,14 @@ body {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    font-weight: 500;
 }
 
 .save-button {
     background-color: var(--primary);
     color: white;
     margin-right: 0.5rem;
+    font-weight: 500;
 }
 
 .save-button:hover {

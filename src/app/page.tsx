@@ -136,7 +136,7 @@ export default function Home() {
                   <td>
                     <Image src={p.thumbnail} alt={p.title} width={50} height={50} />
                   </td>
-                  <td>{p.title}</td>
+                  <td className='TitleCol'>{p.title}</td>
                   <td className='descriptionCol'>{p.description || '—'}</td>
                   <td className='priceCol'>${p.price}</td>
                   <td className='QuantCol'>{p.available_quantity}</td>
